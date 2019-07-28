@@ -17,6 +17,10 @@ def index(request):
         return render(request, 'login.html', contexto)
 
     return render(request, 'index.html', contexto)
+    
+    if request.method == 'POST':
+        return render(request, 'login.html', contexto)
+
 
 def sobre(request):
     ideias = Ideia.objects.all()
@@ -50,11 +54,10 @@ def cadastrar_ideia(request):
             ideia.pessoa = pessoa
             ideia.titulo = request.POST.get('titulo')
             ideia.descricao = request.POST.get('descricao')
-            ideia.categoria = request.POST.get('categoria')
+            ideia.categorias = request.POST.get('categorias')
             ideia.categoria_outros = request.POST.get('categoria_outros')
             ideia.save()
             print('uhuuu')
-
             return redirect('/sobre') 
 
     return render(request, 'ideias.html', {}) 

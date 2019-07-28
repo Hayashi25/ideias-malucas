@@ -5,9 +5,10 @@
 
 <p>
     {% for ideia in ideias %}
+        {% csrf_token %}
         <p>{{ideia.pessoa.nome}} {{ideia.pessoa.sobrenome}}</p>
         <p>{{ideia.titulo}}</p>
-        <p>{{ideia.categoria}}</p>
+        <p>{{ideia.categorias}}</p>
         <p>{{ideia.descricao}}</p>
         <hr>
     {% endfor %}

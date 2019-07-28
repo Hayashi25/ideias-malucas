@@ -1,5 +1,6 @@
 {% extends 'shared/layout.html' %}
 {% block conteudo %}
+    {% csrf_token %}
 
 <h1>Ideias Malucas</h1>
 {% if pessoa is None %}

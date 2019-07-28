@@ -81,4 +81,4 @@ class Ideia(models.Model):
     ativo = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.nome + ' ' + self.titulo
+        return self.pessoa.nome + ' ' + self.titulo
