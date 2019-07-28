@@ -1,9 +1,17 @@
 {% extends 'shared/layout.html' %}
 {% block conteudo %}
 
-<h1>SOBRE TODO O DRAMA DO MUNDO</h1>
+<h1>LISTA DE IDEIAS</h1>
 
-{% include 'shared/lista.html' %}
+<p>
+    {% for ideia in ideias %}
+        <p>{{ideia.pessoa.nome}} {{ideia.pessoa.sobrenome}}</p>
+        <p>{{ideia.titulo}}</p>
+        <p>{{ideia.categoria}}</p>
+        <p>{{ideia.descricao}}</p>
+        <hr>
+    {% endfor %}
+</p>
 
 {% endblock %}
     
