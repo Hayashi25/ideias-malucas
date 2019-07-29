@@ -1,1 +1,1 @@
-web: gunicorn ideias_malucas401.wsgi
+web: gunicorn ideias_malucas.wsgi
