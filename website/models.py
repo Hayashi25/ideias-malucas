@@ -35,6 +35,11 @@ class Pessoa(models.Model):
         blank=True
     )
 
+    password = models.CharField(
+        max_length = 255,
+        verbose_name = 'Password'
+    )
+
     data_de_criacao = models.DateTimeField (auto_now_add = True)
     ativo =models.BooleanField(default = True)
 
@@ -75,10 +80,12 @@ class Ideia(models.Model):
         max_length=255,
         verbose_name='Caso outros, qual?'
     )
-    
+
     data_de_criacao = models.DateTimeField(auto_now_add=True)
     data_de_atualizacao = models.DateTimeField(auto_now=True)
     ativo = models.BooleanField(default=True)
 
     def __str__(self):
         return self.pessoa.nome + ' ' + self.titulo
+
+        

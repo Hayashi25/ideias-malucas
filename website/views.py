@@ -12,6 +12,7 @@ def index(request):
         pessoa.email = request.POST.get('email')
         pessoa.genero = request.POST.get('genero')
         pessoa.biografia = request.POST.get('biografia')
+        pessoa.password = request.POST.get('password')
         pessoa.save()
         contexto = {'msg': 'Parabéns :)'}
         return render(request, 'login.html', contexto)
@@ -24,11 +25,19 @@ def cadastro_existente(request):
 
 
 def sobre(request):
-    ideias = Ideia.objects.all()
+    ideias = Ideia.objects.filter(ativo = True).all()
     contexto = {
         'ideias': ideias
     }
     return render(request, 'sobre.html', contexto)
+
+def remover_ideia(request, id):
+    ideia = Ideia.objects.filter(id=id).first()
+    if ideia is not None:
+        ideia.ativo = False
+        ideia.save()
+        return redirect('/sobre')
+    return render(request, 'sobre.html', {'msg': 'Ops , não foi dessa vez'})
 
 def login(request):
     if request.method == 'POST':
