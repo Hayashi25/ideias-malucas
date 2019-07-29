@@ -4,7 +4,7 @@ from website.models import Pessoa, Ideia
 # Create your views here.
 
 def index(request):
-    contexto ={}
+    contexto = {}
     if request.method == 'POST':
         pessoa = Pessoa()
         pessoa.nome = request.POST.get('nome')
@@ -17,9 +17,10 @@ def index(request):
         return render(request, 'login.html', contexto)
 
     return render(request, 'index.html', contexto)
-    
-    if request.method == 'POST':
-        return render(request, 'login.html', contexto)
+
+def cadastro_existente(request):   
+    contexto = {} 
+    return render(request, 'login.html', contexto)
 
 
 def sobre(request):
@@ -60,4 +61,5 @@ def cadastrar_ideia(request):
             print('uhuuu')
             return redirect('/sobre') 
 
-    return render(request, 'ideias.html', {}) 
+    return render(request, 'ideias.html', {})
+

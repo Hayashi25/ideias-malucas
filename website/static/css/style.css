@@ -1,4 +1,14 @@
 body{
     background-color: rgb(248, 242, 161);
     color: darkblue;
+    font-family: 'Lobster', cursive;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
 }

@@ -5,18 +5,19 @@
 <h2>Cadastre-se</h2>
 {{msg}}
     
-<form action="" method="POST">
+<form action="/" method="POST">
     {% csrf_token %}
     <label> Nome </label>
-    <input type="text" name="nome">
+    <input type="text" name="nome" required>
 
     <label> Sobrenome </label>
-    <input type="text" name="sobrenome" >
+    <input type="text" name="sobrenome" required>
 
     <label> E-mail </label>
-    <input type="text" name="email">
+    <input type="text" name="email" required>
 
-    <select name="genero">
+    <label for="">Gênero</label>
+    <select name="genero" required>
         <option value="F">Feminino</option>
         <option value="M">Masculino</option>
         <option value="O">Outro</option>
@@ -29,7 +30,8 @@
     <input type="submit" value="Cadastrar">
 </form>
 
-<!-- <h3>Ja tenho cadastro</h3>
-<input type="submit" value="Logar"> -->
+<h2>
+<a href="http://localhost:8000/login">Caso ja tenha cadastro clique aqui </a>
+</h2>
 
 {% endblock %}
