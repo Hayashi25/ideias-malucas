@@ -12,7 +12,6 @@ def index(request):
         pessoa.email = request.POST.get('email')
         pessoa.genero = request.POST.get('genero')
         pessoa.biografia = request.POST.get('biografia')
-        pessoa.password = request.POST.get('password')
         pessoa.save()
         contexto = {'msg': 'Parabéns :)'}
         return render(request, 'login.html', contexto)
